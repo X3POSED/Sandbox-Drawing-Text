@@ -2,6 +2,7 @@
 int appWidth, appHeight, fontSize;
 String title = "Wahoo!", footer="Drip";
 float titleX, titleY, titleWidth, titleHeight;
+float centerX, centerY, centerWidth, centerHeight;
 float footerX, footerY, footerWidth, footerHeight;
 PFont titleFont;
 color purple=#2C08FF, resetDefaultInk=#FFFFFF; //Not night mode friendly
@@ -38,11 +39,12 @@ void setup()
   //if ( orientation==p ) println(instruct);
   //
   //Population
-  titleX = footerX = appWidth * 1/4;
+  titleX = footerX = centerX = appWidth * 1/4;
   titleY = appHeight * 1/10;
+  centerY = appHeight * 5/10;
   footerY = appHeight * 8/10;
-  titleWidth = footerWidth = appWidth * 1/2;
-  titleHeight = footerHeight = appHeight * 1/10;
+  titleWidth = footerWidth = centerWidth = appWidth * 1/2;
+  titleHeight = footerHeight = centerHeight = appHeight * 1/10;
   //
   //Text Setup, single executed code
   //Font from OS (Operating System)
@@ -53,6 +55,7 @@ void setup()
   //
   //Layout our text space and typographical features
   rect(titleX, titleY, titleWidth, titleHeight);
+  rect(centerX, centerY, centerWidth, centerHeight);
   rect(footerX, footerY, footerWidth, footerHeight);
   //
 }//End setup
@@ -60,16 +63,16 @@ void setup()
 void draw() 
 {
   //Text Draw: Repeatedly Executed Code
-fill(purple); //Ink
-textAlign(CENTER, CENTER); //Align X&Y, see Processing.org / Reference
-//Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
-fontSize = 50;
-textFont(titleFont, fontSize);
-text( title, titleX, titleY, titleWidth, titleHeight );
-textAlign(CENTER, BOTTOM); //Align X&Y, see Processing.org / Reference
-//Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
-text( footer, footerX, footerY, footerWidth, footerHeight );
-fill(resetDefaultInk);
+  fill(purple); //Ink
+  textAlign(CENTER, CENTER); //Align X&Y, see Processing.org / Reference
+  //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
+  fontSize = 50;
+  textFont(titleFont, fontSize);
+  text( title, titleX, titleY, titleWidth, titleHeight );
+  textAlign(CENTER, BOTTOM); //Align X&Y, see Processing.org / Reference
+  //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
+  text( footer, footerX, footerY, footerWidth, footerHeight );
+  fill(resetDefaultInk);
 }//End draw
 //
 void keyPressed() {
